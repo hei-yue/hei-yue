@@ -264,8 +264,7 @@ var $User = (function () {
       NewImg(0, a[1], "", b);
       oS.CheckImg();
     },
-    LoadImage: $User.Browser.IE
-      ? function (b, d, c) {
+    LoadImage: $User.Browser.IE ? function (b, d, c) {
           var a = new Image();
           a.onreadystatechange = function () {
             a.readyState == "complete" && d(c);
@@ -276,8 +275,7 @@ var $User = (function () {
             d(c);
           };
           a.src = b;
-        }
-      : function (b, d, c) {
+        }: function (b, d, c) {
           var a = new Image();
           a.src = b;
           a.complete
@@ -1484,16 +1482,15 @@ var $User = (function () {
   (deleteCookie = function (a) {
     document.cookie = a + "=0;";
   }),
-  (WordUTF8 =
-    `<div id="dLogo"
-    style="position: absolute; width: 900px; height: 600px; background: #000 url(images/Logo.jpg) no-repeat; z-index: 1">
-    <div id="LogoWord" style="position: absolute; color: #ff0; top: 510px; width: 100%; height: 90px">
-      <span
-        style="position:absolute;font-size:15pt;width:321px;height:69px; font-family:&#x9ED1;&#x4F53;;line-height:69px; left:60px; top:10px;cursor:pointer;background:url(images/interface/LogoLine.png) no-repeat center -5px;text-align:center"
-        onclick="SetBlock($(\'dSurface\'),$(\'iSurfaceBackground\'))"
-        >点击开始ο(=•ω＜=)ρ⌒☆</span>
-    </div>
-  </div>`),
+  (WordUTF8 = `<div id="dLogo"
+  style="position: absolute; width: 900px; height: 600px; background: #000 url(images/Logo.jpg) no-repeat; z-index: 1">
+  <div id="LogoWord" style="position: absolute; color: #ff0; top: 510px; width: 100%; height: 90px">
+    <span
+      style="position:absolute;font-size:15pt;width:321px;height:69px; font-family:&#x9ED1;&#x4F53;;line-height:69px; left:60px; top:10px;cursor:pointer;background:url(images/interface/LogoLine.png) no-repeat center -5px;text-align:center"
+      onclick="SetBlock($(\'dSurface\'),$(\'iSurfaceBackground\'))"
+      >点击开始ο(=•ω＜=)ρ⌒☆</span>
+  </div>
+</div>`),
   (SelectModal = function (g) {
     var b = oS.GlobalVariables,
       c = oS.LvlVariables,
@@ -1518,7 +1515,6 @@ var $User = (function () {
       $("dSurface"),
       $("iSurfaceBackground"),
       $("tGround"),
-      $("dSelectCard"),
       $("dTop"),
       $("dMenu"),
       $("dHandBook"),
@@ -1622,27 +1618,30 @@ var $User = (function () {
   (HiddenHelp = function () {
     SetNone($("dSurfaceBack"), $("dHelp"));
   }),
-  (LoadProProcess = function () {
-    var a = $("JSProcess");
-    $User.Browser.IE
-      ? (a.onreadystatechange = function () {
-          a.readyState == "loaded" && ClearChild(a);
-        })
-      : (a.onload = function () {
-          ClearChild(a);
-        });
-    a.onerror = function () {
-      ClearChild(this);
-    };
-    a.src = "http://demo.mycodes.net/youxi/jspvz/Process.js";
-  }),
+  // (LoadProProcess = function () {
+  //   var a = $("JSProcess");
+  //   $User.Browser.IE
+  //     ? (a.onreadystatechange = function () {
+  //         a.readyState == "loaded" && ClearChild(a);
+  //       })
+  //     : (a.onload = function () {
+  //         ClearChild(a);
+  //       });
+  //   a.onerror = function () {
+  //     ClearChild(this);
+  //   };
+  //   a.src = "http://demo.mycodes.net/youxi/jspvz/Process.js";
+  // }),
   ($ = function (a) {
+    // 获取id选择器
     return document.getElementById(a);
   }),
   ($n = function (a) {
+    // 创造一个元素
     return document.createElement(a);
   }),
   (ClearChild = function () {
+    // 清除子元素
     var a = arguments.length,
       c;
     while (a--) {
@@ -1654,24 +1653,28 @@ var $User = (function () {
     }
   }),
   (SetBlock = function () {
+    // 设置元素显示
     var a = arguments.length;
     while (a--) {
       arguments[a].style.display = "block";
     }
   }),
   (SetNone = function () {
+    // 设置元素为空
     var a = arguments.length;
     while (a--) {
       arguments[a].style.display = "none";
     }
   }),
   (SetHidden = function () {
+    // 隐藏元素
     var a = arguments.length;
     while (a--) {
       arguments[a].style.visibility = "hidden";
     }
   }),
   (SetVisible = function () {
+    // 设置可见
     var a = arguments.length;
     while (a--) {
       arguments[a].style.visibility = "visible";

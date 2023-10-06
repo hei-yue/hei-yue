@@ -4,7 +4,7 @@
     <meta name="KeyWords" content="lonelystar,植物大战僵尸,网页版,JS植物大战僵尸,PVZ,JSPVZ,JS版,Javascript" />
     <meta name="Description" content="JavaScript版的植物大战僵尸,偶的网名叫LonelyStar,不叫‘辣妈’" />
     <title>植物大战僵尸Javascript版</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css" />
     <script src="js/Cfunction.js" type="text/javascript"></script>
     <script src="js/CPlants.js" type="text/javascript"></script>
     <script src="js/CZombie.js" type="text/javascript"></script>
@@ -157,6 +157,7 @@
               </div>
               <div id="dMiniSmallContainer" class="TitleSmallContainer" style="display: none">
                 <div class="BigLevel">小游戏模式</div>
+                <div onClick="SelectModal('RandomPlant')" class="SmallLevel" style="width: 100%">随机植物！！！</div>
                 <div onClick="SelectModal('StrongLevel')" class="SmallLevel" style="width: 100%">超乎寻常的压力！</div>
                 <div onClick="SelectModal('TestUHeart')" class="SmallLevel" style="width: 100%">你的心脏够强劲吗？</div>
                 <div onClick="SelectModal('ZombieRun')" class="SmallLevel" style="width: 100%">僵尸快跑！</div>
@@ -186,18 +187,21 @@
       <!--背景图片-->
       <div style="position: absolute; width: 1400px; height: 600px; display: none; z-index: 0" id="tGround"></div>
       <!--左边卡片列-->
-      <div
-        id="dCardList"
-        style="
-          visibility: hidden;
-          position: absolute;
-          left: 500px;
-          top: 0;
-          width: 100px;
-          overflow: visible;
-          z-index: 254;
-        "
-      ></div>
+        <div
+          id="dCardListBg"
+          style="
+            display: none;
+            position: absolute;
+            left: 500px;
+            top: 0;
+            width: 100px;
+            overflow: visible;
+            z-index: 254;
+            background: url('images/interface/card_back.png') no-repeat;
+          "
+        ><div id="dCardList"></div>
+      </div>
+
       <!--出场僵尸显示-->
       <div id="dZombie" style="position: absolute; width: 335px; height: 600px; left: 1065px; top: 0; z-index: 1"></div>
       <!--选择卡片-->
