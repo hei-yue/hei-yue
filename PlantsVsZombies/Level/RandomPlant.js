@@ -1,33 +1,33 @@
 oS.Init(
   {
     PName: [
-      oPeashooter,  // 豌豆射手
-      oSunFlower,  // 向日葵
-      oCherryBomb,  // 樱桃炸弹
-      oWallNut,  // 坚果墙
-      oPotatoMine,  // 土豆雷
-      oSnowPea,  // 寒冰射手
-      oChomper,  // 大嘴花
-      oSplitPea,  // 分裂射手
-      oJalapeno,  // 火爆辣椒
-      oSpikeweed,  // 地刺
+      // oPeashooter,  // 豌豆射手
+      // oSunFlower,  // 向日葵
+      // oCherryBomb,  // 樱桃炸弹
+      // oWallNut,  // 坚果墙
+      // oPotatoMine,  // 土豆雷
+      // oSnowPea,  // 寒冰射手
+      // oChomper,  // 大嘴花
+      // oSplitPea,  // 分裂射手
+      // oJalapeno,  // 火爆辣椒
+      // oSpikeweed,  // 地刺
       oRepeater,  // 双发射手
-      oTallNut,  // 高坚果
-      oPumpkinHead,  // 南瓜头
-      oSquash,  // 窝瓜
-      oFlowerPot,  // 花盆
-      oTorchwood,  // 火炬树桩
-      oThreepeater,  // 三线射手
+      // oTallNut,  // 高坚果
+      // oPumpkinHead,  // 南瓜头
+      // oSquash,  // 窝瓜
+      // oFlowerPot,  // 花盆
+      // oTorchwood,  // 火炬树桩
+      // oThreepeater,  // 三线射手
       oGatlingPea,  // 加特林
-      oTwinSunflower,  // 双子向日葵
+      // oTwinSunflower,  // 双子向日葵
       oSpikerock,  // 地刺王
-      oFumeShroom,  // 大喷菇
-      oCoffeeBean,  // 咖啡豆
+      // oFumeShroom,  // 大喷菇
+      // oCoffeeBean,  // 咖啡豆
       oGloomShroom,  // 曾哥
-      oSunShroom,  // 阳光菇
-      oPuffShroom,  // 小喷菇
-      oScaredyShroom,  // 胆小菇
-      oGarlic,  // 大蒜
+      // oSunShroom,  // 阳光菇
+      // oPuffShroom,  // 小喷菇
+      // oScaredyShroom,  // 胆小菇
+      // oGarlic,  // 大蒜
     ],
     ZName: [oZombie, oConeheadZombie],
     PicArr: (function () {
@@ -162,19 +162,30 @@ oS.Init(
         j = h.prototype,
         d = g.DID,
         e;
-      j.CanGrow(k, f, a)
-        ? (function () {
-            new h().Birth(c, b, f, a, k);
-            SetStyle($("imgGrowSoil"), { left: c - 30 + "px", top: b - 40 + "px", zIndex: 3 * f, display: "block" });
-            oSym.addTask(20, SetNone, [$("imgGrowSoil")]);
-            ClearChild($("MovePlant"), $("MovePlantAlpha"));
-            $("dCardList").removeChild((e = $(d)));
-            e = null;
-            ArCard.splice(i, 1);
-            oS.ChoseCard = "";
-            oS.Chose = 0;
-          })()
-        : CancelPlant();
+        (function () {
+                new h().Birth(c, b, f, a, k);
+                SetStyle($("imgGrowSoil"), { left: c - 30 + "px", top: b - 40 + "px", zIndex: 3 * f, display: "block" });
+                oSym.addTask(20, SetNone, [$("imgGrowSoil")]);
+                ClearChild($("MovePlant"), $("MovePlantAlpha"));
+                $("dCardList").removeChild((e = $(d)));
+                e = null;
+                ArCard.splice(i, 1);
+                oS.ChoseCard = "";
+                oS.Chose = 0;
+              })()
+      // j.CanGrow(k, f, a)
+      //   ? (function () {
+      //       new h().Birth(c, b, f, a, k);
+      //       SetStyle($("imgGrowSoil"), { left: c - 30 + "px", top: b - 40 + "px", zIndex: 3 * f, display: "block" });
+      //       oSym.addTask(20, SetNone, [$("imgGrowSoil")]);
+      //       ClearChild($("MovePlant"), $("MovePlantAlpha"));
+      //       $("dCardList").removeChild((e = $(d)));
+      //       e = null;
+      //       ArCard.splice(i, 1);
+      //       oS.ChoseCard = "";
+      //       oS.Chose = 0;
+      //     })()
+      //   : CancelPlant();
     },
     ViewPlantTitle: function (a) {
       var c = $("dTitle"),

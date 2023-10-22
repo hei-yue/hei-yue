@@ -1523,6 +1523,8 @@ var CPlants = NewO({
         e = oZ.getArZ(c, b, g);
         for (h = e.length; h--; (a = e[h]).Altitude < 2 && a.getHurt(0, 0, 80, 0, 0, 0, 0)) {}
       }
+      console.log(d);
+
       d.childNodes[1].src = "images/Plants/GloomShroom/GloomShroomAttack.gif";
       SetBlock($(l));
       ImgSpriter(
