@@ -1,35 +1,43 @@
 oS.Init(
   {
     PName: [
-      // oPeashooter,  // 豌豆射手
+      oPeashooter,  // 豌豆射手
       // oSunFlower,  // 向日葵
-      // oCherryBomb,  // 樱桃炸弹
-      // oWallNut,  // 坚果墙
-      // oPotatoMine,  // 土豆雷
-      // oSnowPea,  // 寒冰射手
-      // oChomper,  // 大嘴花
-      // oSplitPea,  // 分裂射手
-      // oJalapeno,  // 火爆辣椒
-      // oSpikeweed,  // 地刺
+      oCherryBomb,  // 樱桃炸弹
+      oWallNut,  // 坚果墙
+      oPotatoMine,  // 土豆雷
+      oSnowPea,  // 寒冰射手
+      oChomper,  // 大嘴花
+      oSplitPea,  // 分裂射手
+      oJalapeno,  // 火爆辣椒
+      oSpikeweed,  // 地刺
       oRepeater,  // 双发射手
-      // oTallNut,  // 高坚果
-      // oPumpkinHead,  // 南瓜头
-      // oSquash,  // 窝瓜
-      // oFlowerPot,  // 花盆
-      // oTorchwood,  // 火炬树桩
-      // oThreepeater,  // 三线射手
+      oTallNut,  // 高坚果
+      oPumpkinHead,  // 南瓜头
+      oSquash,  // 窝瓜
+      oFlowerPot,  // 花盆
+      oTorchwood,  // 火炬树桩
+      oThreepeater,  // 三线射手
       oGatlingPea,  // 加特林
       // oTwinSunflower,  // 双子向日葵
       oSpikerock,  // 地刺王
-      // oFumeShroom,  // 大喷菇
-      // oCoffeeBean,  // 咖啡豆
-      oGloomShroom,  // 曾哥
+      oFumeShroom,  // 大喷菇
+      oCoffeeBean,  // 咖啡豆
+      // oGloomShroom,  // 曾哥
       // oSunShroom,  // 阳光菇
-      // oPuffShroom,  // 小喷菇
-      // oScaredyShroom,  // 胆小菇
-      // oGarlic,  // 大蒜
+      oPuffShroom,  // 小喷菇
+      oScaredyShroom,  // 胆小菇
+      oGarlic,  // 大蒜
     ],
-    ZName: [oZombie, oConeheadZombie],
+    ZName: [
+      oZombie,   // 领带僵尸
+      oFlagZombie,  // 旗帜僵尸
+      oConeheadZombie,   // 路障僵尸
+      oBucketheadZombie,  // 铁桶僵尸
+      oFootballZombie,  // 橄榄球僵尸
+      oPoleVaultingZombie,  // 撑杆僵尸
+      oNewspaperZombie  // 读报僵尸
+    ],
     PicArr: (function () {
         var a = oRepeater.prototype,
           b = a.PicArr;
@@ -50,7 +58,7 @@ oS.Init(
       SetNone($("dSunNum"));
       SetBlock($("dTop"));
       oS.InitLawnMower();
-      PrepareGrowPlants(function () {
+      PrepareGrowPlants(function () {  // 准备种植植物
         oP.Monitor({
           f: function () {
             (function () {
@@ -94,17 +102,29 @@ oS.Init(
     },
   },
   {
+    // ArZ: [
+    //   oZombie,
+    //   oZombie,
+    //   oZombie,
+    //   oZombie,
+    //   oZombie,
+    //   oZombie,
+    //   oZombie,
+    //   oConeheadZombie,
+    //   oConeheadZombie,
+    //   oConeheadZombie,
+    // ],
     ArZ: [
-      oZombie,
-      oZombie,
-      oZombie,
-      oZombie,
-      oZombie,
-      oZombie,
-      oZombie,
-      oConeheadZombie,
-      oConeheadZombie,
-      oConeheadZombie,
+      oZombie,   // 领带僵尸
+      oZombie,   // 领带僵尸
+      oZombie,   // 领带僵尸
+      oFlagZombie,  // 旗帜僵尸
+      oFlagZombie,  // 旗帜僵尸
+      oConeheadZombie,   // 路障僵尸
+      oBucketheadZombie,  // 铁桶僵尸
+      // oFootballZombie,  // 橄榄球僵尸
+      oPoleVaultingZombie,  // 撑杆僵尸
+      oNewspaperZombie  // 读报僵尸
     ],
     FlagNum: 10,
     SumToZombie: { 1: 7, 2: 10, default: 10 },
@@ -122,6 +142,7 @@ oS.Init(
   {
     GetChoseCard: function (b) {
       var a = ArCard.length;
+      console.log(ArCard);
       while (a--) {
         ArCard[a].DID == b && ((oS.ChoseCard = a), (a = 0));
       }
