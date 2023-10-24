@@ -1,43 +1,38 @@
 oS.Init(
   {
     PName: [
-      oPeashooter,  // 豌豆射手
+      // oPeashooter,  // 豌豆射手
       // oSunFlower,  // 向日葵
       oCherryBomb,  // 樱桃炸弹
       oWallNut,  // 坚果墙
-      oPotatoMine,  // 土豆雷
+      // oPotatoMine,  // 土豆雷
       oSnowPea,  // 寒冰射手
       oChomper,  // 大嘴花
-      oSplitPea,  // 分裂射手
+      // oSplitPea,  // 分裂射手
       oJalapeno,  // 火爆辣椒
-      oSpikeweed,  // 地刺
-      oRepeater,  // 双发射手
-      oTallNut,  // 高坚果
+      // oSpikeweed,  // 地刺
+      // oRepeater,  // 双发射手
+      // oTallNut,  // 高坚果
       oPumpkinHead,  // 南瓜头
-      oSquash,  // 窝瓜
+      // oSquash,  // 窝瓜
       oFlowerPot,  // 花盆
-      oTorchwood,  // 火炬树桩
+      // oTorchwood,  // 火炬树桩
       oThreepeater,  // 三线射手
       oGatlingPea,  // 加特林
       // oTwinSunflower,  // 双子向日葵
       oSpikerock,  // 地刺王
-      oFumeShroom,  // 大喷菇
-      oCoffeeBean,  // 咖啡豆
+      // oFumeShroom,  // 大喷菇
+      // oCoffeeBean,  // 咖啡豆
       // oGloomShroom,  // 曾哥
       // oSunShroom,  // 阳光菇
-      oPuffShroom,  // 小喷菇
-      oScaredyShroom,  // 胆小菇
+      // oPuffShroom,  // 小喷菇
+      // oScaredyShroom,  // 胆小菇
       oGarlic,  // 大蒜
     ],
-    ZName: [
-      oZombie,   // 领带僵尸
-      oFlagZombie,  // 旗帜僵尸
-      oConeheadZombie,   // 路障僵尸
-      oBucketheadZombie,  // 铁桶僵尸
-      oFootballZombie,  // 橄榄球僵尸
-      oPoleVaultingZombie,  // 撑杆僵尸
-      oNewspaperZombie  // 读报僵尸
-    ],
+    interval:null, //定时器
+    plantCard:[],  // 植物DID列表数据
+    ChosePlantCard:0,
+    ZName: [oZombie,oFlagZombie,oBucketheadZombie,oPoleVaultingZombie, oConeheadZombie],
     PicArr: (function () {
         var a = oRepeater.prototype,
           b = a.PicArr;
@@ -58,7 +53,11 @@ oS.Init(
       SetNone($("dSunNum"));
       SetBlock($("dTop"));
       oS.InitLawnMower();
-      PrepareGrowPlants(function () {  // 准备种植植物
+      oS.PName.forEach(element => {
+        var f = "dCard" + Math.random();
+        oS.plantCard.push({ DID: f, PName: element, PixelTop: 600 })
+      });
+      PrepareGrowPlants(function () {
         oP.Monitor({
           f: function () {
             (function () {
@@ -78,11 +77,17 @@ oS.Init(
                     SetNone($("dTitle"));
                   },
                   onclick: function (g) {
+                    // ChosePlant(g, oS.ChoseCard, f);
+                    // 定时器作为刷新
+                    // setInterval(ChosePlant,100,g, oS.ChoseCard, f);
                     ChosePlant(g, oS.ChoseCard, f);
+                    oS.interval = setInterval(function() {
+                      ChosePlant(g, oS.ChoseCard, f);
+                  }, 80); 
                   },
                 });
               }
-              oSym.addTask(600, arguments.callee, []);
+              oSym.addTask(400, arguments.callee, []);
             })();
             (function () {
               var b = ArCard.length,
@@ -102,61 +107,56 @@ oS.Init(
     },
   },
   {
-    // ArZ: [
-    //   oZombie,
-    //   oZombie,
-    //   oZombie,
-    //   oZombie,
-    //   oZombie,
-    //   oZombie,
-    //   oZombie,
-    //   oConeheadZombie,
-    //   oConeheadZombie,
-    //   oConeheadZombie,
-    // ],
     ArZ: [
-      oZombie,   // 领带僵尸
-      oZombie,   // 领带僵尸
-      oZombie,   // 领带僵尸
-      oFlagZombie,  // 旗帜僵尸
-      oFlagZombie,  // 旗帜僵尸
-      oConeheadZombie,   // 路障僵尸
-      oBucketheadZombie,  // 铁桶僵尸
-      // oFootballZombie,  // 橄榄球僵尸
-      oPoleVaultingZombie,  // 撑杆僵尸
-      oNewspaperZombie  // 读报僵尸
+      oZombie,
+      oZombie,oFlagZombie,
+      oZombie,oFlagZombie,oBucketheadZombie,oPoleVaultingZombie, oConeheadZombie,
+      oConeheadZombie,
     ],
-    FlagNum: 10,
-    SumToZombie: { 1: 7, 2: 10, default: 10 },
-    FlagToSumNum: { a1: [3, 5, 9], a2: [1, 2, 3, 10] },
-    FlagToMonitor: { 9: [ShowFinalWave, 0] },
+    FlagNum: 20,
+    SumToZombie: { 1: 2, 2: 11, 3: 15, default: 15 },
+    FlagToSumNum: {
+      a1: [3, 5, 9, 10, 13, 15, 19],
+      a2: [1, 3, 5, 20, 10, 15, 20],
+    }, //a2:僵尸总数
+    FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
     FlagToEnd: function () {
-      NewImg("imgSF", "images/card/plants/PotatoMine.png", "left:587px;top:270px", EDAll, {
-        onclick: function () {
-          SelectModal(0);
-        },
-      });
-      NewImg("PointerUD", "images/interface/PointerDown.gif", "top:235px;left:596px", EDAll);
+      NewImg(
+        "imgSF",
+        "images/interface/trophy.png",
+        "left:367px;top:233px",
+        EDAll,
+        {
+          onclick: function () {
+            SelectModal(0);
+          },
+        }
+      );
     },
   },
   {
     GetChoseCard: function (b) {
       var a = ArCard.length;
-      console.log(ArCard);
       while (a--) {
         ArCard[a].DID == b && ((oS.ChoseCard = a), (a = 0));
       }
       return oS.ChoseCard;
     },
     ChosePlant: function (a, b) {
-      var f = ArCard[oS.ChoseCard],
+      // var f = ArCard[oS.ChoseCard],
+      oS.ChosePlantCard = Math.floor(Math.random()*oS.PName.length);
+      var f = oS.plantCard[oS.ChosePlantCard],
         e = (a = a || event).clientX,
         d = a.clientY + document.body.scrollTop,
         c = f.PName.prototype;
+        // c = f.prototype;
       oS.Chose = 1;
+      var plantImg = $Pn[c.EName].childNodes[1].cloneNode(false);
+      $('MovePlant')?ReplacePlant(plantImg):
       EditImg(
         EditImg(
-          $Pn[c.EName].childNodes[1].cloneNode(false),
+          // $Pn[c.EName].childNodes[1].cloneNode(false),
+          plantImg,  // 植物图片
           "MovePlant",
           "",
           { left: e - c.width * 0.5 + "px", top: d + 20 - c.height + "px", zIndex: 254 },
@@ -167,8 +167,13 @@ oS.Init(
         { display: "none", filter: "alpha(opacity=40)", opacity: 0.4, zIndex: 30 },
         EDAll
       );
-      SetAlpha($(f.DID), 50, 0.5);
+      // SetAlpha($(f.DID), 50, 0.5);
+      SetAlpha($(ArCard[oS.ChoseCard].DID), 50, 0.5);
       SetNone($("dTitle"));
+    },
+    ReplacePlant:function(img){
+      $('MovePlant').setAttribute('src',img.getAttribute('src'));
+      $('MovePlantAlpha').setAttribute('src',img.getAttribute('src'));
     },
     CancelPlant: function () {
       ClearChild($("MovePlant"), $("MovePlantAlpha"));
@@ -177,11 +182,12 @@ oS.Init(
       oS.ChoseCard = "";
     },
     GrowPlant: function (k, c, b, f, a) {
-      var i = oS.ChoseCard,
-        g = ArCard[i],
+      clearInterval(oS.interval);
+      var i = oS.ChosePlantCard,
+        g = oS.plantCard[i],
         h = g.PName,
         j = h.prototype,
-        d = g.DID,
+        d = ArCard[oS.ChoseCard].DID,
         e;
         (function () {
                 new h().Birth(c, b, f, a, k);
@@ -190,7 +196,7 @@ oS.Init(
                 ClearChild($("MovePlant"), $("MovePlantAlpha"));
                 $("dCardList").removeChild((e = $(d)));
                 e = null;
-                ArCard.splice(i, 1);
+                ArCard.splice(oS.ChoseCard, 1);
                 oS.ChoseCard = "";
                 oS.Chose = 0;
               })()
