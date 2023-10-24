@@ -5,9 +5,9 @@
     <meta name="Description" content="JavaScript版的植物大战僵尸,偶的网名叫LonelyStar,不叫‘辣妈’" />
     <title>植物大战僵尸Javascript版</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <script src="js/Cfunction.js" type="text/javascript"></script>
-    <script src="js/CPlants.js" type="text/javascript"></script>
-    <script src="js/CZombie.js" type="text/javascript"></script>
+    <script src="./js/Cfunction.js" type="text/javascript"></script>
+    <script src="./js/CPlants.js" type="text/javascript"></script>
+    <script src="./js/CZombie.js" type="text/javascript"></script>
     <script id="JSPVZ" type="text/javascript"></script>
     <script id="JSProcess" type="text/javascript"></script>
   </head>
@@ -29,23 +29,23 @@
         <div id="dFlagMeterTitleB"><span id="sFlagMeterTitleF"></span></div>
       </div>
       <div id="dFlagMeterContent" style="position: absolute; left: 344px; width: 157px; height: 40px">
-        <img id="imgFlagMeterEmpty" border="0" src="images/interface/FlagMeterEmpty.png" style="top: 17px" />
+        <img id="imgFlagMeterEmpty" border="0" src="./images/interface/FlagMeterEmpty.png" style="top: 17px" />
         <img
           id="imgFlagMeterFull"
           border="0"
-          src="images/interface/FlagMeterFull.png"
+          src="./images/interface/FlagMeterFull.png"
           style="top: 17px; clip: rect(0, auto, auto, 157px)"
         />
-        <img id="imgFlag1" src="images/interface/FlagMeterParts2.png" style="left: 10px; top: 14px; display: none" />
-        <img id="imgFlag2" src="images/interface/FlagMeterParts2.png" style="left: 40px; top: 14px; display: none" />
-        <img id="imgFlag3" src="images/interface/FlagMeterParts2.png" style="left: 70px; top: 14px; display: none" />
-        <img id="imgFlag4" src="images/interface/FlagMeterParts2.png" style="left: 100px; top: 14px; display: none" />
+        <img id="imgFlag1" src="./images/interface/FlagMeterParts2.png" style="left: 10px; top: 14px; display: none" />
+        <img id="imgFlag2" src="./images/interface/FlagMeterParts2.png" style="left: 40px; top: 14px; display: none" />
+        <img id="imgFlag3" src="./images/interface/FlagMeterParts2.png" style="left: 70px; top: 14px; display: none" />
+        <img id="imgFlag4" src="./images/interface/FlagMeterParts2.png" style="left: 100px; top: 14px; display: none" />
         <img
           id="imgGQJC"
-          src="images/interface/FlagMeterLevelProgress.png"
+          src="./images/interface/FlagMeterLevelProgress.png"
           style="left: 35px; top: 29px; display: block"
         />
-        <img id="imgFlagHead" src="images/interface/FlagMeterParts1.png" style="left: 139px; top: 13px" />
+        <img id="imgFlagHead" src="./images/interface/FlagMeterParts1.png" style="left: 139px; top: 13px" />
       </div>
     </div>
 
@@ -57,11 +57,11 @@
           <area href="javascript:void(0)" shape="rect" coords="718, 512, 790, 558" onClick="ShowHelp()" />
           <area href="javascript:void(0)" shape="rect" coords="800, 495, 879, 548" onClick="SetNone($('dSurface'))" />
         </map>
-        <img src="images/surface.png" usemap="#FPMap0" border="0" />
+        <img src="./images/surface.png" usemap="#FPMap0" border="0" />
         <div
           style="
             position: absolute;
-            background: url('images/SelectorScreenStartAdventur.png');
+            background: url('./images/SelectorScreenStartAdventur.png');
             left: 474px;
             top: 80px;
             width: 331px;
@@ -75,7 +75,7 @@
         <div
           style="
             position: absolute;
-            background: url('images/SelectorScreenSurvival.png');
+            background: url('./images/SelectorScreenSurvival.png');
             left: 474px;
             top: 203px;
             width: 313px;
@@ -214,7 +214,7 @@
           width: 465px;
           height: 600px;
           z-index: 1;
-          background: url('images/interface/SeedChooser_Background.png') no-repeat;
+          background: url('./images/interface/SeedChooser_Background.png') no-repeat;
         "
       >
         <div
@@ -285,7 +285,7 @@
         <div
           id="dSunNum"
           style="
-            background: url('images/interface/SunBack.png') no-repeat;
+            background: url('./images/interface/SunBack.png') no-repeat;
             position: absolute;
             width: 123px;
             height: 35px;
@@ -312,11 +312,11 @@
             width: 71px;
             height: 35px;
             left: 130px;
-            background: url('images/interface/ShovelBack.png') no-repeat;
+            background: url('./images/interface/ShovelBack.png') no-repeat;
             visibility: hidden;
           "
         >
-          <img id="imgShovel" src="images/interface/Shovel.png" onMouseDown="ChoseShovel(event)" />
+          <img id="imgShovel" src="./images/interface/Shovel.png" onMouseDown="ChoseShovel(event)" />
         </div>
       </div>
     </div>
@@ -337,7 +337,7 @@
         width="800"
         cellspacing="0"
         cellpadding="0"
-        background="images/interface/Almanac_IndexBack.jpg"
+        background="./images/interface/Almanac_IndexBack.jpg"
         height="600"
       >
         <tr>
@@ -347,7 +347,7 @@
         </tr>
         <tr>
           <td align="center" width="400" height="473">
-            <img border="0" src="images/Plants/SunFlower/SunFlower.gif" width="73" height="74" /><br />
+            <img border="0" src="./images/Plants/SunFlower/SunFlower.gif" width="73" height="74" /><br />
             <br />
             <br />
             <br />
@@ -376,12 +376,12 @@
             &nbsp;
           </td>
           <td align="center" width="400" height="473" colspan="2">
-            <img border="0" src="images/Zombies/Zombie/Zombie.gif" width="149" height="130" /><br />
+            <img border="0" src="./images/Zombies/Zombie/Zombie.gif" width="149" height="130" /><br />
             &nbsp;
             <table
               border="0"
               width="113"
-              background="images/interface/Button.png"
+              background="./images/interface/Button.png"
               height="41"
               cellspacing="0"
               cellpadding="0"
@@ -410,10 +410,10 @@
             <table border="0" width="89" cellspacing="0" cellpadding="0" height="26">
               <tr>
                 <td
-                  background="images/interface/Almanac_CloseButton.png"
+                  background="./images/interface/Almanac_CloseButton.png"
                   style="cursor: pointer"
-                  onMouseOver="this.style.backgroundImage='url(images/interface/Almanac_CloseButtonHighlight.png)'"
-                  onMouseOut="this.style.backgroundImage='url(images/interface/Almanac_CloseButton.png)'"
+                  onMouseOver="this.style.backgroundImage='url(./images/interface/Almanac_CloseButtonHighlight.png)'"
+                  onMouseOut="this.style.backgroundImage='url(./images/interface/Almanac_CloseButton.png)'"
                   onClick="SetNone($('dHandBook'))"
                   align="center"
                 >
@@ -434,7 +434,7 @@
         position: absolute;
         width: 800px;
         height: 600px;
-        background: url(images/interface/AwardScreen_Back.jpg) no-repeat;
+        background: url(./images/interface/AwardScreen_Back.jpg) no-repeat;
       "
     >
       <div
