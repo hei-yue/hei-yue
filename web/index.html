@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>❗惊❗天❗大❗瓜</title>
+    <link rel="icon" href="./img/melon.png" type="images/x-icon">
+
+    <style>
+        .svg {
+            /* width: 30px;
+            height: 20px; */
+            margin: 0 auto;
+            display: inline-block;
+            
+        }
+        .span-click {
+            color: rgb(0, 106, 255);
+            cursor: pointer;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- div水平居中 -->
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      "
+    >
+      <div style="text-align: center">
+        <h1 class="h1-span">
+            <!-- 引用img的svg -->
+             <div class="svg">
+               <img src="./img/fire.png" width="34" height="34"/>
+             </div>
+          <!-- span会闪烁的文字，在红蓝绿之间变色 -->
+          <span style="color: blue">惊</span>
+          <span style="color: red">天</span>
+          <span style="color: blue">大</span>
+          <span style="color: red">瓜</span>
+          <div class="svg">
+            <img src="./img/fire.png" width="34" height="34"/>
+          </div>
+        </h1>
+        <h1 class="h1-span">
+            <div class="svg">
+                ❤️
+              </div>
+            <!-- span会闪烁的文字，在红蓝绿之间变色 -->
+            <span style="color: red">独</span>
+            <span style="color: blue">家</span>
+            <span style="color: red">内</span>
+            <span style="color: blue">幕</span>
+            <div class="svg">
+                ❤️
+              </div>
+          </h1>
+        <p>原来，我们的身边还发生这样的是……</p>
+        <p>😱😱😱😱😱😱</p>
+        <p>😱😱😱😱😱😱</p>
+        <p class="p1"><span class="span-click">点击这里🌟</span>获取代码，输入下方查看</p>
+        <div style="margin-bottom: 5vh;">
+            <input type="text" value="9527" id="code"/>
+            <input type="button" value="提交" onclick="checkCode()"/>
+        </div>
+          
+          <div id="show" style="display: none; width: 100vh;height: 50vh;margin-top: 5vh;">
+            <div><img src="./img/img1.jpg" width="200" height="150"/></div>
+            <p>子乔，我也看到一群小🐖在排队跳水……</p>
+            <div><video src="./video/v1.mp4" id="v1" width="400" height="300" controls></video></div>
+            
+            <div style="color: bisque;"> 来源于爱情公寓第一季14集 无聊的周末</div>
+          </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    setInterval(() => {
+      const spans = document.querySelectorAll('.h1-span span');
+      spans.forEach((span) => {
+        span.style.color = span.style.color === 'red' ? 'blue' : 'red';
+      });
+    }, 300);
+    let i = 0;
+    // 点击span-click时，下方会滑动生成一个div
+    const spanClick = document.querySelector('.span-click');
+    const input = document.querySelector('input');
+    spanClick.addEventListener('click', () => {
+      if (i==0) {
+      const div = document.createElement('div');
+        
+        div.innerHTML = `<h1>9527</h1>`;
+      document.querySelector('.p1').append(div);
+      i++
+      }
+      
+    });
+
+    function checkCode() {
+      const code = document.getElementById('code').value;
+      if (code === '9527') {
+    
+        // 链接指向 id为show
+        document.querySelector('#show').style.display = 'block';
+        window.location.href = '#show';
+        document.getElementById('v1').play();
+      } else {
+        alert('输入错误');
+      }
+    }
+    
+   
+  </script>
+  </script>
+</html>
